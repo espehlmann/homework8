@@ -1,0 +1,85 @@
+<!--
+ COMP 4610 91.61 GUI Programming I
+ Erika Spehlmann erika_spehlmann@student.uml.edu
+ Last updated: November 30, 2018
+ Copyright (c) 2018 by Erika Spehlmann. All rights reserved.
+This webpage validates a form for a multiplication table using jQuery
+-->
+
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css" />
+  <title>Homework 8</title>
+</head>
+
+<body>
+  <h1>
+    Multiplication Table
+  </h1>
+
+<form id="getNums" onsubmit="myFunction(); return false;">
+  <label for="slideText1">First Column Value:</label>
+    <input type="text" id="slideText1" name="slideText1"/> <br><br>
+  <div id="slider1"></div><br> <br>
+
+  <label for="slideText2">Second Column Value:</label>
+    <input type="text" id="slideText2" name="slideText2"/> <br><br>
+  <div id="slider2"></div><br> <br>
+
+  <label for="slideText3">First Row Value:</label>
+    <input type="text" id="slideText3" name="slideText3"/> <br><br>
+  <div id="slider3"></div><br> <br>
+
+  <label for="slideText4">Second Row Value:</label>
+    <input type="text" id="slideText4" name="slideText4"/> <br><br>
+  <div id="slider4"></div><br> <br>
+
+  <label>
+    <input type="submit" value="Submit" id ="button">
+  </label>
+
+</form>
+
+<!-- references for jQuery/javaScript/css -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+<script type='text/javascript' src="js/js.js"></script>
+<script src="https://code.jquery.com/ui/jquery-ui-git.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"></link>
+
+<!-- Use jQuery UI to create sliders for each input -->
+<!-- Used code from following tutorial to create sliders:
+    https://www.youtube.com/watch?v=EJgidw317xc -->
+
+  <script type='text/javascript'>
+    $('#slider1').slider({
+      slide: function(event, ui){
+        $('#slideText1').val(ui.value);
+          $("#getNums").submit();
+      }
+    });
+    $('#slider2').slider({
+      slide: function(event, ui){
+        $('#slideText2').val(ui.value);
+          $("#getNums").submit();
+      }
+    });
+    $('#slider3').slider({
+      slide: function(event, ui){
+        $('#slideText3').val(ui.value);
+          $("#getNums").submit();
+      }
+    });
+    $('#slider4').slider({
+      slide: function(event, ui){
+        $('#slideText4').val(ui.value);
+          $("#getNums").submit();
+      }
+    });
+
+</script>
+</body>
+</html>
