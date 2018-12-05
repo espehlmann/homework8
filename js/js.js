@@ -146,5 +146,68 @@ var v2= Number(document.forms["getNums"]["slideText4"].value);
   return false;
 }
 
-// on click call fundtion aboce
-//document.getElementById("button").onclick = myFunction;
+
+// Use jQuery UI to create sliders for each input
+// Used code from following tutorial to create sliders:
+//    https://www.youtube.com/watch?v=EJgidw317xc
+$( function(){
+  $('#slider1').slider({
+    slide: function(event, ui){
+      $('#slideText1').val(ui.value);
+        $("#getNums").submit();
+    }
+  });
+
+  $("#slideText1").val( $("#slider1").slider("value"));
+  $("#slideText1").val( $("#slider1").slider("value"));
+  $("#slideText1").val( $("#slider1").slider("value"));
+  $("#slideText1").val( $("#slider1").slider("value"));
+
+  $("#slideText1").change(function () {
+    var value = this.value;
+    $("#slider1").slider("value", parseInt(value, 10));
+    $("form").submit();
+  });
+
+//This will make the multiplication table change dynamically as slider is being changed
+  $('#slider2').slider({
+    slide: function(event, ui){
+      $('#slideText2').val(ui.value);
+        $("#getNums").submit();
+    }
+  });
+
+//Using code from StackExchange to bind text input and slider
+//https://stackoverflow.com/questions/7523864/ui-slider-with-text-box-input
+  $("#slideText2").change(function () {
+    var value = this.value;
+    $("#slider2").slider("value", parseInt(value, 10));
+    $("form").submit();
+  });
+
+  $('#slider3').slider({
+    slide: function(event, ui){
+      $('#slideText3').val(ui.value);
+        $("#getNums").submit();
+    }
+  });
+
+  $("#slideText3").change(function () {
+    var value = this.value;
+    $("#slider3").slider("value", parseInt(value, 10));
+    $("form").submit();
+  });
+
+  $('#slider4').slider({
+    slide: function(event, ui){
+      $('#slideText4').val(ui.value);
+        $("#getNums").submit();
+    }
+  });
+
+  $("#slideText4").change(function () {
+    var value = this.value;
+    $("#slider4").slider("value", parseInt(value, 10));
+    $("form").submit();
+  });
+})
